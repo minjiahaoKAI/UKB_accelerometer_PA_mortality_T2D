@@ -91,17 +91,6 @@ esttab x3 using `v'_joint.rtf , eform ci(2)  wide nostar b(%9.2f) keep(*.MPA_sel
 }
 
 ///PAF analysis
-foreach v of varlist LPA_self_4 MPA_self_4 VPA_self_4 MVPA_self_4 {
-gen a_`v' = 0
-replace a_`v' = 1 if `v' == 1
-gen b_`v' = 0
-replace b_`v' = 1 if `v' == 2
-gen c_`v' = 0
-replace c_`v' = 1 if `v' == 3
-gen d_`v' = 0
-replace d_`v' = 1 if `v' == 4
-}
-
 local covariates3 age_accel sex new_ethnic i.qualification i.season_wear duration_wear i.smoke alcohol_unit i.diet_score sleep_score1 diabetes_duration BMI wasit history_cancer_CVD self_hypertension i.health_self i.long_illness_injury i.illness_injury_2years
 
 stset follow_death , failure(death_HES == 1)
